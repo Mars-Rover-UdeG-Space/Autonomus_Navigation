@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Author: Paola Lomeli
+    Date: 21/08/2024
+    Description: Este launch lanza toda la funcionalidad para mover el rover de manera autonoma
+    utilizando los componentes fisicos del rover. Para trabajar con la simulacion utilice "start_navigation_simulated.launch"
+
+    Example Usage:
+    roslaunch mission_control start_navigation.launch
+-->
+<launch>
+
+    <!-- Launch the GPS node with specified parameters -->
+    <node name="nmea_serial_driver" pkg="nmea_navsat_driver" type="nmea_serial_driver" output="screen">
+        <param name="port" value="/dev/ttyUSB0" />
+        <param name="baud" value="9600" />
+    </node>
+
+    <!-- Include Rover definition -->
+    <include file="$(find mission_control)/LAUNCH/rover_definition.launch" />
+
+    <!-- Anadir funcionalidad para mover el rover y crear los mapas -->
+    <include file="$(find path_planning)/LAUNCH/move_base.launch" />
+    
+</launch>

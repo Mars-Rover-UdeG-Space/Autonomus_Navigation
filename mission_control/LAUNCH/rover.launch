@@ -1,0 +1,52 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<!--
+    Author: Paola Lomeli
+    Date: 20/11/2023
+    Description: Este launch ejecuta todos los nodos necesarios para simular las dimensiones
+    fisicas del rover en GAZEBO.
+
+    Example Usage:
+    roslaunch mission_control rover.launch
+-->
+<launch>
+        
+    <env name="GAZEBO_MODEL_PATH" value="$(find mission_control)/models"/>
+
+    <!-- overwriting these args -->
+    <arg name="debug" default="false" />
+    <arg name="gui" default="true" />
+    <arg name="pause" default="false" />
+
+    <!-- Aqui se cambia el WORLD de GAZEBO -->
+    <arg name="world" default="$(find mission_control)/WORLDS/empty.world" />
+
+    <!-- include gazebo_ros launcher -->
+    <arg name = "extra_gazebo_args" default="--verbose"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+            <arg name="world_name" value="$(arg world)" />
+            <arg name="debug" value="$(arg debug)" />
+            <arg name="gui" value="$(arg gui)" />
+            <arg name="paused" value="$(arg pause)" />
+            <arg name="use_sim_time" value="true" />
+            <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
+    </include>
+
+    <!-- Add Rviz-->
+    <arg name="rviz_config" default="simulation.rviz" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mission_control)/RVIZ/$(arg rviz_config)"/>
+
+    <!-- Robot description (ilhuacamina)-->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mission_control)/XACRO/ilhuicamina_simplified.xacro'"/>
+    <node name="robot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+            args="-urdf -param robot_description -model QT1 "/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+            <param name="use_tf_static" value="false"/>
+    </node>
+
+    <!-- Add gmapping for SLAM mapping-->
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true">
+            <param name ="base_frame" value="base_link" />
+            <param name="map_update_interval" value="30.0"/>
+    </node>
+        
+</launch>

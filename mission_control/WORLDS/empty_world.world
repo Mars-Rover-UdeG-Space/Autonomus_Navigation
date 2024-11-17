@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.5">
+	<world name="default">
+		<!-- A global light source -->
+		<include>
+			<uri>model://sun</uri>
+		</include>
+
+		<!-- A ground plane -->
+		<include>
+			<uri>model://ground_plane</uri>
+		</include>
+
+		<!-- Posts aruco tags-->
+		<model name="aruco_tags">
+			<link name="poste_start">
+				<pose>3.06 0 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+			<link name="poste_1">
+				<pose>3.255 -5.1 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+			<link name="poste_2">
+				<pose>5.46 3 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+			<link name="poste3">
+				<pose>-3.545 -2.1 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+			<link name="poste_gate_1">
+				<pose>.86 8 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+			<link name="poste_gate_2">
+				<pose>2.86 8 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+		</model>
+
+		<!-- <model name="baylands_01">
+			<link name="body">
+				<pose>0 0 -1.3  0 0 0</pose>
+			  <visual name="visual">
+				<geometry>
+				  <mesh>model://baylands/media/baylands_01.DAE</mesh>
+				</geometry>
+				<material>
+				  <script>
+					<uri>model://baylands/media/scripts/</uri>
+					<uri>model://baylands/media/Textures/</uri>
+					<name>OakTree/Branch</name>
+				  </script>
+				</material>
+			  </visual>
+			  <collision name="collision">
+				<geometry>
+				  <mesh>model://baylands/media/baylands_01.DAE</mesh>
+				</geometry>
+			  </collision>
+			</link>
+		  </model>-->
+	</world>
+</sdf>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>path_planning</name>
+  <version>0.0.0</version>
+  <description>Nodos que calculan las trayectorias a seguir con base en la información de vision_processing y fusión de sensores.</description>
+
+  <maintainer email="gabriela.lomeli@alumnos.com.mx">Paola Gabriela Lomeli Barcena</maintainer>
+  <license>TODO</license>
+
+  <author email="gabriela.lomeli@alumnos.com.mx">Paola Gabriela Lomeli Barcena</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <depend>geometry_msgs</depend>
+  <depend>global_planner</depend>
+
+</package>

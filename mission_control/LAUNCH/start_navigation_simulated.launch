@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Author: Paola Lomeli
+    Date: 21/08/2024
+    Description: Este launch lanza toda la funcionalidad para mover el rover de manera autonoma
+    utilizando la simulacion en GAZEBO. para mover el rover fisicamente utilice "start_navigation.launch"
+
+    Example Usage:
+    roslaunch mission_control start_navigation_simulated.launch
+-->
+<launch>
+
+    <!-- Teleoperar-->
+    <include file="$(find teleop_twist_joy)/launch/teleop.launch"></include>
+
+    <!-- Incluir definicion del rover -->
+    <include file="$(find mission_control)/LAUNCH/rover.launch">
+        <arg name="rviz_config" value="simulation.rviz" />
+    </include>
+
+    <!--- Run AMCL --> 
+    <include file="$(find amcl)/examples/amcl_diff.launch"/>
+
+    <!-- Anadir funcionalidad para mover el rover y crear los mapas -->
+    <include file="$(find path_planning)/LAUNCH/move_base.launch" />
+    
+</launch>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Author: Paola Lomeli
+    Date: 21/08/2024
+    Description: Este launch ejecuta el nodo move_base que se encarga de generar los mapas de costos
+    y recibe comandos para calcular la trayectoria del Rover y mandar comandos de velocidad.
+
+    Example Usage:
+    roslaunch path planning move_base.launch
+-->
+<launch>
+
+   <!-- Se ejecuta el nodo y se cargan los archivos de parametros -->
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+      <rosparam file="$(find path_planning)/PARAMS/common_params.yaml" command="load" ns="global_costmap" /> 
+      <rosparam file="$(find path_planning)/PARAMS/common_params.yaml" command="load" ns="local_costmap" />
+      <rosparam file="$(find path_planning)/PARAMS/local_params.yaml" command="load" />
+      <rosparam file="$(find path_planning)/PARAMS/global_params.yaml" command="load" /> 
+      <rosparam file="$(find path_planning)/PARAMS/base_local_planner_params.yaml" command="load" />
+
+      <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+      <param name="controller_frequency" value="10.0" />
+   </node>
+
+</launch> 

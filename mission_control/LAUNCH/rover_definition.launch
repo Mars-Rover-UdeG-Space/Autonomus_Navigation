@@ -1,0 +1,61 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<!--
+    Author: Paola Lomeli
+    Date: 20/05/2023
+    Description: Este launch ejecuta todos los nodos necesarios para publicar las
+    tf e informacion de sensores del rover fisico.
+
+    Example Usage:
+    roslaunch mission_control rover_definition.launch
+-->
+<launch>
+
+  <!-- Publicar odometria y tf -->
+  <node name="odom_publisher" pkg="bring_up" type="fake_odom_publisher2.py" output="screen">
+      <param name="headerId" type="String" value="odom"/>
+      <param name="childID" type="String" value="base_link"/>
+      <param name="translationX" type="double" value="0.0"/>
+      <param name="translationY" type="double" value="0.0"/>
+      <param name="translationZ" type="double" value="0.0"/>
+      <param name="eulerR" type="double" value="0.0"/>
+      <param name="eulerP" type="double" value="0.0"/>
+      <param name="eulerY" type="double" value="0.0"/>
+  </node>
+
+  <!-- Publicar datos de prueba para el laser -->
+  <!-- <node name="scan_publisher_node" pkg="bring_up" type="fake_laserscan_publisher.py" output="screen"/> -->
+
+  <!-- <node name="lidar" pkg="ldlidar" type="ldlidar.py" output="screen"/> -->
+
+
+  <!-- Add Rviz-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find bring_up)/rviz/robot_model.rviz"/>
+
+  <!-- Robot description (ilhuacamina)-->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find bring_up)/URDF/ilhuicamina_simplified.xacro'"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <param name="use_tf_static" value="false"/>
+  </node>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
+  <!-- Add gmapping for SLAM mapping-->
+  <!-- <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true">
+    <param name ="base_frame" value="base_link" />
+    <param name="map_update_interval" value="5.0"/>
+  </node> -->
+
+  <!-- Start move base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find bring_up)/params/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find bring_up)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find bring_up)/params/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find bring_up)/params/global_costmap_params.yaml" command="load" /> 
+    <rosparam file="$(find bring_up)/params/base_local_planner_params.yaml" command="load" />
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    <param name="controller_frequency" value="10.0" />
+   </node>
+
+   <!-- Star interface -->
+  <node name="autonav_interface" pkg="bring_up" type="startNavigation.py" output="screen"/>
+
+</launch>

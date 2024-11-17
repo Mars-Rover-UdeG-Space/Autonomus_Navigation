@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>sensor_drivers</name>
+  <version>0.0.0</version>
+  <description>Nodos responsables de la adquisición de datos desde LiDAR, IMU, cámara de profundidad, y encoders.</description>
+
+  <maintainer email="gabriela.lomeli@alumnos.com.mx">Paola Gabriela Lomeli Barcena</maintainer>
+  <license>TODO</license>
+
+  <author email="gabriela.lomeli@alumnos.com.mx">Paola Gabriela Lomeli Barcena</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+
+</package>

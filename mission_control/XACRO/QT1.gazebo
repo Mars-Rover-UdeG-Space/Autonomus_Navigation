@@ -1,0 +1,310 @@
+<?xml version="1.0"?>
+<robot name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <leftJoint>base_to_alwheel</leftJoint>
+      <rightJoint>base_to_arwheel</rightJoint>
+      <wheelSeparation>0.7</wheelSeparation>
+      <wheelDiameter>0.33</wheelDiameter>
+      <torque>5000</torque>  
+      <publishWheelTF>true</publishWheelTF>
+      <robotNamespace>/</robotNamespace>
+      <publishTf>1</publishTf>
+      <publishWheelJointState>false</publishWheelJointState>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100.0</updateRate>
+      <broadcastTF>1</broadcastTF>
+      <wheelTorque>50000.0</wheelTorque> 
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryTopic>odom</odometryTopic>
+      <pose_covariance_diagonal>[1.0, 1.0, 0.0, 0.0, 0.0, 1.0]</pose_covariance_diagonal>
+      <twist_covariance_diagonal>[0.01, 0.0, 0.0, 0.0, 0.0, 0.1]</twist_covariance_diagonal>
+      <gaussianNoise>0.05</gaussianNoise>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <legacyMode>false</legacyMode>
+      <publishOdomTF>true</publishOdomTF>
+      <odometrySource>world</odometrySource>
+    </plugin>
+  </gazebo>
+
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_to_alwheel">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <leftJoint>base_to_middle1_link</leftJoint>
+      <rightJoint>base_to_middle2_link</rightJoint>
+      <wheelSeparation>0.7</wheelSeparation>
+      <wheelDiameter>0.33</wheelDiameter>
+      <torque>5000</torque>  
+      <publishWheelTF>true</publishWheelTF>
+      <robotNamespace>/</robotNamespace>
+      <publishTf>1</publishTf>
+      <publishWheelJointState>false</publishWheelJointState>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100.0</updateRate>
+      <broadcastTF>1</broadcastTF>
+      <wheelTorque>50000.0</wheelTorque> 
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryTopic>odom</odometryTopic>
+      <pose_covariance_diagonal>[1.0, 1.0, 0.0, 0.0, 0.0, 1.0]</pose_covariance_diagonal>
+      <twist_covariance_diagonal>[0.01, 0.0, 0.0, 0.0, 0.0, 0.1]</twist_covariance_diagonal>
+      <gaussianNoise>0.05</gaussianNoise>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <legacyMode>false</legacyMode>
+      <publishOdomTF>true</publishOdomTF>
+      <odometrySource>world</odometrySource>
+    </plugin>
+  </gazebo>
+
+  <transmission name="tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_to_middle1_link">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_to_middle2_link">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_to_arwheel">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <leftJoint>base_to_flwheel</leftJoint>
+      <rightJoint>base_to_frwheel</rightJoint>
+      <wheelSeparation>0.7</wheelSeparation>
+      <wheelDiameter>0.33</wheelDiameter>
+      <torque>5000</torque>  
+      <publishWheelTF>true</publishWheelTF>
+      <robotNamespace>/</robotNamespace>
+      <publishTf>1</publishTf>
+      <publishWheelJointState>false</publishWheelJointState>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100.0</updateRate>
+      <broadcastTF>1</broadcastTF>
+      <wheelTorque>50000.0</wheelTorque> 
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryTopic>odom</odometryTopic>
+      <pose_covariance_diagonal>[1.0, 1.0, 0.0, 0.0, 0.0, 1.0]</pose_covariance_diagonal>
+      <twist_covariance_diagonal>[0.01, 0.0, 0.0, 0.0, 0.0, 0.1]</twist_covariance_diagonal>
+      <gaussianNoise>0.05</gaussianNoise>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <legacyMode>false</legacyMode>
+      <publishOdomTF>true</publishOdomTF>
+      <odometrySource>world</odometrySource>
+    </plugin>
+  </gazebo>
+
+  <!-- Transmission left wheel-->
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_to_flwheel">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <!-- transmission right wheel-->
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_to_frwheel">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <leftJoint>base_to_middle1_link</leftJoint>
+      <rightJoint>base_to_middle2_link</rightJoint>
+      <wheelSeparation>0.7</wheelSeparation>
+      <wheelDiameter>0.33</wheelDiameter>
+      <torque>5000</torque>  
+      <publishWheelTF>true</publishWheelTF>
+      <robotNamespace>/</robotNamespace>
+      <publishTf>1</publishTf>
+      <publishWheelJointState>false</publishWheelJointState>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100.0</updateRate>
+      <broadcastTF>1</broadcastTF>
+      <wheelTorque>50000.0</wheelTorque> 
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryTopic>odom</odometryTopic>
+      <pose_covariance_diagonal>[1.0, 1.0, 0.0, 0.0, 0.0, 1.0]</pose_covariance_diagonal>
+      <twist_covariance_diagonal>[0.01, 0.0, 0.0, 0.0, 0.0, 0.1]</twist_covariance_diagonal>
+      <gaussianNoise>0.05</gaussianNoise>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <legacyMode>false</legacyMode>
+      <publishOdomTF>true</publishOdomTF>
+      <odometrySource>world</odometrySource>
+    </plugin>
+  </gazebo>
+
+  <!-- Transmission left wheel-->
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_to_middle1_link">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <!-- transmission right wheel-->
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_to_middle2_link">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+      
+  <!-- Camera plugin-->
+  <gazebo reference="ZED_link">
+    <material value="Gazebo/Black"/>
+    <sensor name="ZED_camera" type="depth">
+      <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+        <baseline>0.12</baseline>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <cameraName>ZED</cameraName>
+        <imageTopicName>/camera/color/image_raw</imageTopicName>
+        <cameraInfoTopicName>/camera/color/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>/camera/depth/camera_info</depthImageCameraInfoTopicName>
+        <pointCloudTopicName>/camera/depth/point_cloud</pointCloudTopicName>
+        <frameName>ZED_depth_link</frameName>
+        <pointCloudCutoff>0.2</pointCloudCutoff>
+        <pointCloudCutoffMax>20</pointCloudCutoffMax>
+        <distortionK1>0</distortionK1>
+        <distortionK2>0</distortionK2>
+        <distortionK3>0</distortionK3>
+        <distortionT1>0</distortionT1>
+        <distortionT2>0</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Sensor IMU-->
+  <gazebo reference="ZED_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>ZED_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- GPS -->
+  <gazebo>
+    <plugin name="gazebo_ros_gps" filename="libhector_gazebo_ros_gps.so">
+      <updateRate>4.0</updateRate>
+      <bodyName>ZED_link</bodyName>
+      <frameId>ZED_link</frameId>
+      <topicName>/gps/fix</topicName>
+      <velocityTopicName>/gps/fix_velocity</velocityTopicName>
+      <referenceLatitude>-30.06022459407145675</referenceLatitude>
+      <referenceLongitude>-51.173913575780311191</referenceLongitude>
+      <referenceHeading>90</referenceHeading>
+      <referenceAltitude>10</referenceAltitude>
+      <offset>0 0 0</offset>
+      <drift>0.001 0.001 0.001</drift>
+      <gaussianNoise>0.05 0.05 0.05</gaussianNoise>
+      <velocityDrift>0.001 0.001 0.001</velocityDrift>
+      <velocityGaussianNoise>0.5 0.5 0.5</velocityGaussianNoise>
+    </plugin>
+  </gazebo>
+
+  <!-- GAZEBO LASER SCAN  -->
+  <gazebo reference="ZED_link">
+    <material value="Gazebo/Black"/>
+    <sensor type="ray" name="lidar">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-0.959931</min_angle>
+            <max_angle>0.959931</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.50</min>
+          <max>20.0</max>
+          <resolution>0.15</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>ZED_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+    <gazebo>
+      <plugin filename="libgazebo_ros_control.so" name="ros_control">
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+    </gazebo>
+</robot>

@@ -1,0 +1,871 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='entorno'>
+    			<link name="poste_start">
+				<pose>3.06 0 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+			<link name="poste_1">
+				<pose>3.255 -5.1 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+			<link name="poste_2">
+				<pose>5.46 3 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+			<link name="poste3">
+				<pose>-3.545 -2.1 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+			<link name="poste_gate_1">
+				<pose>.86 8 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+			<link name="poste_gate_2">
+				<pose>2.86 8 0.5 0 0 0</pose>
+				<collision name="collision">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</collision>
+				<visual name="visual">
+					<geometry>
+						<box>
+							<size>0.05 0.05 1.0</size>
+						</box>
+					</geometry>
+				</visual>
+			</link>
+      <link name='obstacle1'>
+        <pose>5 0.2 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.8</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.8</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='obstacle2'>
+        <pose>5 -0.2 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.8</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.8</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='obstacle3'>
+        <pose>5 -0.6 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.8</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.8</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+
+
+
+
+    <model name='start'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://start/meshes/start.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.00265 -0.107279 0 0 -0 0</pose>
+    </model>
+    <model name='start_1'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://start/meshes/start.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.12196 -0.105014 0 0 -0 0</pose>
+    </model>
+    <model name='start_1_clone'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://start/meshes/start.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.12236 -0.23779 0 0 -0 1.0472</pose>
+    </model>
+    <model name='post1'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://post1/meshes/post1.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.23477 -0.096724 0 0 -0 0</pose>
+    </model>
+    <model name='post1_0'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://post1/meshes/post1.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.35243 -0.10158 0 0 -0 0</pose>
+    </model>
+    <model name='post1_1'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://post1/meshes/post1.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.27206 -0.113822 0 0 -0 0</pose>
+    </model>
+    <model name='post2'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://post2/meshes/post2.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.39732 -0.102749 0 0 -0 0</pose>
+    </model>
+    <model name='post2_0'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://post2/meshes/post2.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.50946 -0.095874 0 0 -0 0</pose>
+    </model>
+    <model name='post2_1'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://post2/meshes/post2.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.66448 -0.233039 0 0 -0 0</pose>
+    </model>
+    <model name='post3'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://post3/meshes/post3.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.62201 -0.093474 0 0 -0 0</pose>
+    </model>
+    <model name='post3_0'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://post3/meshes/post3.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.74929 -0.109873 0 0 -0 0</pose>
+    </model>
+    <model name='post3_1'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://post3/meshes/post3.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.71328 -0.229661 0 0 -0 0</pose>
+    </model>
+    <model name='gate1'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://gate1/meshes/gate1.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>3.98439 -0.095914 0 0 -0 0</pose>
+    </model>
+    <model name='gate1_0'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://gate1/meshes/gate1.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>4.13457 -0.107972 0 0 -0 0</pose>
+    </model>
+    <model name='gate1_1'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://gate1/meshes/gate1.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>4.27895 -0.12625 0 0 -0 0</pose>
+    </model>
+    <model name='gate2'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://gate2/meshes/gate2.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>4.04022 -0.092894 0 0 -0 0</pose>
+    </model>
+    <model name='gate2_0'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://gate2/meshes/gate2.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>4.09601 -0.094549 0 0 -0 0</pose>
+    </model>
+    <model name='gate2_1'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://gate2/meshes/gate2.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>4.17872 -0.102467 0 0 -0 0</pose>
+    </model>
+
+
+
+
+    <state world_name='default'>
+      <sim_time>27 82000000</sim_time>
+      <real_time>186 717409135</real_time>
+      <wall_time>1677271881 732996270</wall_time>
+      <iterations>27082</iterations>
+      <model name='entorno'>
+        <pose>-0.001458 0.000433 0.381684 -1e-06 -0.003698 -8.5e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='obstacle1'>
+          <pose>4.99852 0.200009 0.400172 -1e-06 -0.003698 -8.5e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+        <link name='obstacle2'>
+          <pose>4.99849 -0.199992 0.400186 1e-06 -0.003775 -8.4e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.489685 0.504803 19.4716 -1.26143 1.22373 -1e-06</acceleration>
+          <wrench>0.489685 0.504803 19.4716 0 -0 0</wrench>
+        </link>
+        <link name='obstacle3'>
+          <pose>4.99849 -0.599992 0.400186 0 -0.00378 -0.000116</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.490145 0.439932 19.4571 -1.10104 1.22277 -0.014211</acceleration>
+          <wrench>0.490145 0.439932 19.4571 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='gate1'>
+        <pose>0.8 8 0.8 0 -0 -3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.8 8 0.8 0 -0 -3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='gate1_0'>
+        <pose>0.886602 8.05 0.8 0 -0 1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.886602 8.05 0.8 0 -0 1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='gate1_1'>
+        <pose>0.886602 7.95 0.8 0 0 -1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.886602 7.95 0.8 0 0 -1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='gate2'>
+        <pose>2.8 8 0.8 0 -0 -3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>2.8 8 0.8 0 -0 -3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='gate2_0'>
+        <pose>2.8866 8.05 0.8 0 -0 1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>2.8866 8.05 0.8 0 -0 1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='gate2_1'>
+        <pose>2.8866 7.95 0.8 0 0 -1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>2.8866 7.95 0.8 0 0 -1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='post1'>
+        <pose>3.2 -5.1 0.8 0 -0 -3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>3.2 -5.1 0.8 0 -0 -3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='post1_0'>
+        <pose>3.2866 -5.15 0.8 0 0 -1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>3.2866 -5.15 0.8 0 0 -1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='post1_1'>
+        <pose>3.2866 -5.05 0.8 0 -0 1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>3.2866 -5.05 0.8 0 -0 1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='post2'>
+        <pose>5.4 3 0.8 0 -0 -3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>5.4 3 0.8 0 -0 -3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='post2_0'>
+        <pose>5.4866 3.05 0.8 0 -0 1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>5.4866 3.05 0.8 0 -0 1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='post2_1'>
+        <pose>5.4866 2.95 0.8 0 0 -1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>5.4866 2.95 0.8 0 0 -1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='post3'>
+        <pose>-3.6 -2.1 0.8 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-3.6 -2.1 0.8 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='post3_0'>
+        <pose>-3.5134 -2.05 0.8 0 -0 1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-3.5134 -2.05 0.8 0 -0 1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='post3_1'>
+        <pose>-3.5134 -2.15 0.8 0 0 -1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-3.5134 -2.15 0.8 0 0 -1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='start'>
+        <pose>3 0 0.8 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>3 0 0.8 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='start_1'>
+        <pose>3.0866 0.05 0.8 0 -0 1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>3.0866 0.05 0.8 0 -0 1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='start_1_clone'>
+        <pose>3.0866 -0.05 0.8 0 0 -1.0472</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>3.0866 -0.05 0.8 0 0 -1.0472</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>-1.42617 -6.36562 4.60108 0 0.677802 1.39526</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>

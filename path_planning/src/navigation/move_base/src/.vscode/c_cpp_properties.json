@@ -1,0 +1,38 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/paola/catkin_ws_MarsRover/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/amcl/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/base_local_planner/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/carrot_planner/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/clear_costmap_recovery/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/costmap_2d/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/dwa_local_planner/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/global_planner/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/map_server/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/move_base/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/move_slow_and_clear/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/nav_core/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/navfn/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/octomap_mapping/octomap_server/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/rotate_recovery/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/teleop_twist_joy/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/velodyne_simulator/velodyne_gazebo_plugins/include/**",
+        "/home/paola/catkin_ws_MarsRover/src/autonomous_navigation/navigation/voxel_grid/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
